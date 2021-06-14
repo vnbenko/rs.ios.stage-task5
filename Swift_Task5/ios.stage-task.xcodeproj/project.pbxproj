@@ -135,8 +135,8 @@
 			children = (
 				8218228C2669041400F55DC7 /* Exercises */,
 				8273B5282668FDF000717D50 /* AppDelegate.swift */,
-				8273B52A2668FDF000717D50 /* SceneDelegate.swift */,
 				8273B52C2668FDF000717D50 /* ViewController.swift */,
+				8273B52A2668FDF000717D50 /* SceneDelegate.swift */,
 				8273B52E2668FDF000717D50 /* Main.storyboard */,
 				8273B5312668FDF200717D50 /* Assets.xcassets */,
 				8273B5332668FDF200717D50 /* LaunchScreen.storyboard */,
