@@ -16,7 +16,26 @@ public final class Knapsack {
         self.foods = foods
     }
     
+    func getKnapsack(for array: [Supply]) -> [[Int]] {
+        var knapsack = Array(repeating: Array(repeating: 0, count: maxWeight + 1), count: array.count + 1)
+        for index in 0...array.count {
+            for weight in 0...maxWeight {
+                if index != 0 && weight != 0 {
+                    knapsack[index][weight] = array[index - 1].weight > weight ? knapsack[index - 1][weight] : max(knapsack[index - 1][weight], (array[index - 1].value + knapsack[index - 1][weight - array[index - 1].weight]))
+                }
+            }
+        }
+        return knapsack
+    }
+    
     func findMaxKilometres() -> Int {
-        return -1
+        guard maxWeight > 0 && maxWeight <= 2500 else { return 0 }
+        let food = getKnapsack(for: foods)
+        let drink = getKnapsack(for: drinks)
+        var maxDistance = 0
+        for i in 0...maxWeight {
+            maxDistance = max(maxDistance, min(food[foods.count][i], drink[drinks.count][maxWeight-i]))
+        }
+        return maxDistance
     }
 }
